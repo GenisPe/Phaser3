@@ -11,7 +11,7 @@ const config = {
     physics: {
         default: "arcade",
         arcade: {
-           // gravity: { y: 0 },
+            gravity: { y: 00 },
         }
     }
 }
@@ -24,18 +24,58 @@ function preload() {
 
 function create() {
     console.log(Phaser.Input.Keyboard.KeyCodes);
-    this.escandalo = this.add.image(100, 300, "escandalo"); // Añadir la imagen al juego en la posición (400, 300)
+    this.escandalo = this.physics.add.image(100, 300, "escandalo"); // Añadir la imagen al juego en la posición (400, 300)
     this.escandalo.setScale(0.3); // Redimensionar la imagen al 30% de su tamaño original
     //this.escandalo.flipX = true; // Voltear la imagen horizontalmente para andar acia delante o atras
     //this.escandalo.setAngle(0); // Establecer el ángulo inicial a 0 grados
     //this.escandalo.setOrigin(0.5, 0.5);  // Cambiar el punto de origen al centro de la imagen
     //Fisicas
-    //this.escandalo.setCollideWorldBounds(true); // Hacer que la imagen colisione con los límites del mundo
+    this.escandalo.setCollideWorldBounds(true); // Hacer que la imagen colisione con los límites del mundo
     //this.escandalo.setBounce(0.25); // Hacer que la imagen rebote al colisionar con los límites del mundo
     //this.escandalo.setAcceleration(50,0);   // Establecer una aceleración constante en el eje X
     //this.escandalo.setVelocity(100, -200); // Establecer una velocidad inicial en el eje X y Y
-    this.input.keyboard.on("keydown_RIGHT", () => {
-        this.escandalo.x++;
+
+    this.input.keyboard.on("keydown-RIGHT", () => {
+        //this.escandalo.x += 10; // Mover la imagen 10 píxeles a la derecha
+        this.escandalo.setAcceleration(150, 0);
+        this.escandalo.setVelocity(250, 0);
+    });
+    this.input.keyboard.on("keyup-RIGHT", () => {
+        this.escandalo.setAcceleration(0, 0);
+        this.escandalo.setVelocity(0);
+    });
+
+    this.input.keyboard.on("keydown-LEFT", () => {
+        //this.escandalo.x += 10; // Mover la imagen 10 píxeles a la derecha
+        this.escandalo.setAcceleration(-150, 0);
+        this.escandalo.setVelocity(-250, 0);
+
+    });
+    this.input.keyboard.on("keyup-LEFT", () => {
+        this.escandalo.setAcceleration(0, 0);
+        this.escandalo.setVelocity(0);
+    });
+
+    this.input.keyboard.on("keydown-UP", () => {
+        //this.escandalo.x += 10; // Mover la imagen 10 píxeles a la derecha
+        this.escandalo.setAcceleration(0, -150);
+                this.escandalo.setVelocity(0, -250);
+
+    });
+    this.input.keyboard.on("keyup-UP", () => {
+        this.escandalo.setAcceleration(0, 0);
+        this.escandalo.setVelocity(0);
+    });
+
+    this.input.keyboard.on("keydown-DOWN", () => {
+        //this.escandalo.x += 10; // Mover la imagen 10 píxeles a la derecha
+        this.escandalo.setAcceleration(0, 150);
+                this.escandalo.setVelocity(0, 250);
+
+    });
+    this.input.keyboard.on("keyup-DOWN", () => {
+        this.escandalo.setAcceleration(0, 0);
+        this.escandalo.setVelocity(0);
     });
 }
 
