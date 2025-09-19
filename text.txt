@@ -3,7 +3,7 @@ function preload() {
 }
 
 function create() {
-    console.log(Phaser.Input.Keyboard.KeyCodes);
+    console.log(Phaser.Input.Keyboard.KeyCodes); 
     this.escandalo = this.physics.add.image(100, 300, "escandalo"); // Añadir la imagen al juego en la posición (400, 300)
     this.escandalo.setScale(0.3); // Redimensionar la imagen al 30% de su tamaño original
     //this.escandalo.flipX = true; // Voltear la imagen horizontalmente para andar acia delante o atras

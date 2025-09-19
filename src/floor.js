@@ -10,8 +10,11 @@ class floor extends Phaser.Scene {
         this.load.image("stone", "./Objects/Floor/stone.png");
     }
     create() {
-        this.add.image(90, 90, "earth");
-        this.earth.setScale(1);
+        this.add.image(18, 18, "earth").setScale(0.25);
+        this.add.image(55, 18, "earth").setScale(0.25);
+        this.add.image(92, 18, "earth").setScale(0.25);
+        this.add.image(129, 18, "earth").setScale(0.25);
+        
 
     }
 
